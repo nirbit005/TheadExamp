@@ -1,0 +1,21 @@
+info:
+  component: APOS cacheconsole service
+spring:
+  application:
+    name: ChartStatusTableLoad
+  profiles:
+    active: ${SPRING_PROFILES_ACTIVE:dev}
+  cloud:
+     consul:
+       host: ${SPRING_CLOUD_CONSUL_HOST:http://consul.apos.io}
+       port: ${SPRING_CLOUD_CONSUL_PORT:80}
+     config:
+       failFast: true
+       discovery:
+         serviceId: k8s-aposconfigserver-${SPRING_APPLICATION_ENV:dev}
+         enabled: true
+  rabbitmq:
+    host: ${SPRING_RABBITMQ_HOST:rabbitmq-dev.apos.io}
+    port: ${SPRING_RABBITMQ_PORT:5672}
+    username: ${SPRING_RABBITMQ_USERNAME:rabbitmq}
+    password: ${SPRING_RABBITMQ_PASSWORD:rabbitmq}

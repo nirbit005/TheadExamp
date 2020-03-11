@@ -1,0 +1,94 @@
+buildscript {
+  ext {
+		springBootVersion = '2.2.5.RELEASE'
+	}
+	repositories {
+		mavenLocal()
+		maven { url 'https://nexus.apos.in/nexus/repository/maven-public/' }
+	}
+	dependencies {
+		classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"	
+	
+	}
+}
+
+/*
+plugins {
+    id 'java'
+    id 'eclipse'	
+}
+*/
+//apply plugin: 'maven-publish'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+
+group = 'cris.apos'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+targetCompatibility = '11'
+
+repositories {
+	mavenCentral()
+	maven { url 'https://nexus.apos.in/nexus/repository/maven-public/' }
+}
+
+/*
+bootJar {
+	enabled = true
+}
+
+jar {
+	enabled = true
+}
+*/
+dependencies {
+//	compile 'org.springframework.boot:spring-boot-starter-parent'
+	implementation 'org.springframework.boot:spring-boot-starter'
+//	compile 'org.springframework.boot:spring-boot-starter-web'
+	//compile('org.springframework.boot:spring-boot-starter-webflux')
+	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'  
+	runtimeOnly 'org.postgresql:postgresql'
+	
+	implementation 'cris.apos.cache:cache-buffers:0.1.0-SNAPSHOT'
+   	implementation 'cris.apos.cache:cache-api:0.1.0-SNAPSHOT'
+   	implementation 'cris.apos.cache:static-cache-impl:0.1.0-SNAPSHOT'
+//	implementation 'cris.apos:application-utils:0.0.1-SNAPSHOT'
+
+	implementation 'org.springframework.boot:spring-boot-starter-mail'	
+	implementation 'com.google.guava:guava:24.1-jre'
+
+}
+/*
+test {
+	useJUnitPlatform()
+}
+*/
+//mainClassName = 'cris.apos.prs.chart.Application'
+
+//create a single Jar with all dependencies
+/*
+task fatJar(type: Jar) {
+	manifest {
+        attributes 'Implementation-Title': 'Gradle Jar File Example',  
+        	'Implementation-Version': version,
+        	'Main-Class': 'cris.apos.prs.chart.Application'
+    }
+    baseName = project.name + '-all'
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+}
+*/
+/*
+jar {
+  manifest {
+    attributes(
+      'Class-Path': configurations.compile.collect { it.getName() }.join(' '),
+      'Main-Class': 'cris.apos.prs.chart.Application'
+    )
+  }
+}*/
+
