@@ -28,19 +28,18 @@ public class ReportCHTEngg {
 		String rdLine = null;
 		
 		 // Recipient's email ID needs to be mentioned.
-		  String chartusr[] = {"sangeetha@cris.org.in", "bindesh.dhakarwar@cris.org.in",
-				  			 "Umadevi.K@cris.org.in", "sareena.k@cris.org.in", "yadav.nishant@cris.org.in", "bijumon.c@cris.org.in",
-						     "Naik.Guruprasad@cris.org.in","kumar.nirmal@cris.org.in"};
+		  String chartusr[] = {"xxx@xxx.com", "xxx@xxx.com",
+				  			};
 		  
-	//      String to[] = {"asishgupta@cris.org.in", "kumar.nirmal@cris.org.in"};
+	
 
 	      // Sender's email ID needs to be mentioned
-	      String from = "cht_support@cris.org.in";
+	      String from = "xxx@xxx.com";
 
 	      // Assuming you are sending email from localhost
-	      String host = "172.16.1.206";
+	      String host = "xx.xx.xx.xxx";
 	      
-	      String pwd = "lotusnotes";	
+	      String pwd = "xxxxx";	
 
 	      // Get system properties
 	      Properties properties = System.getProperties();
